@@ -1,0 +1,25 @@
+> nuxt dev
+
+Nuxt 4.0.3 with Nitro 2.12.4                                                              nu
+Nuxt 4.0.3 with Nitro 2.12.4                                                              nuxi 10:25:47 PM
+[10:25:48 PM] [get-port] Unable to find an available port (tried 3000 on host "localhost"). 
+[10:25:48 PM] [get-port] Unable to find an available port (tried 3000 on host "localhost"). Using alternative port 3001.
+                                                                                            
+                                                                                               10:25:48 PM
+  ➜ Local:    http://localhost:3001/
+  ➜ Network:  use --host to expose
+
+ℹ Using default Tailwind CSS file                                            nuxt:tailwindcs
+ℹ Using default Tailwind CSS file                                            nuxt:tailwindcss 10:25:48 PM
+  ➜ DevTools: press Shift + Option + D in the browser (v2.6.2)                              
+  ➜ DevTools: press Shift + Option + D in the browser (v2.6.2)                                 10:25:48 PM
+
+✔ Vite client built in 18ms                                                                 
+✔ Vite client built in 18ms                                                                   10:25:48 PM
+✔ Vite server built in 27ms                                                                 
+✔ Vite server built in 27ms                                                                   10:25:48 PM
+✔ Nuxt Nitro server built in 482ms                                                      nitr
+✔ Nuxt Nitro server built in 482ms                                                      nitro 10:25:49 PM
+ℹ Vite client warmed up in 1ms                                                              
+ℹ Vite client warmed up in 1ms                                                                10:25:49 PM
+ℹ Vite server warmed up in 23ms                                                             
