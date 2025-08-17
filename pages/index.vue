@@ -193,12 +193,14 @@ body {
 .page-wrapper {
   background-color: var(--gray-100);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 16px;
+  overflow-x: hidden;
 }
 
 /* ─── TOPBAR ────────────────────────────────────────────────────────────────── */

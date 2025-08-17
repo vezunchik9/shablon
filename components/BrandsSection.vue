@@ -161,7 +161,7 @@ function onScroll(e) {
   /* скрываем десктопную сетку, включаем слайдер */
   .brands__grid { display: none; }
   .brands__slider { display: block; }
-  .brands-track { padding: 0 24px; }
+  .brands-track { padding: 0 16px; }
   .brand-card__img { height: 84px; }
 }
 </style>

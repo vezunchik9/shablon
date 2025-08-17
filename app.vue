@@ -23,6 +23,9 @@ import LeadModal from '@/components/LeadModal.vue'
   --radius: 8px;
 }
 
+/* Prevent horizontal scroll bleed on mobile */
+html, body, #__nuxt { overflow-x: hidden; }
+
 /* Unified mobile typography */
 @media (max-width: 600px) {
   /* Big headline (hero) */

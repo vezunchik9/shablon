@@ -84,7 +84,8 @@ function onScroll(e) {
 .benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 340px)); gap: 24px; max-width: 1200px; margin: 0 auto; align-items: stretch; justify-content: center; }
 .benefits__slider { display: none; position: relative; }
 .benefits-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-.benefit--slide { flex: 0 0 85%; scroll-snap-align: start; margin-inline: 12px; }
+.benefits-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 12px; }
+.benefit--slide { flex: 0 0 88%; scroll-snap-align: start; margin-inline: 12px; }
 .slider-nav { position: absolute; top: 40%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,.2); z-index: 2; }
 .slider-nav--prev { left: 6px; }
 .slider-nav--next { right: 6px; }

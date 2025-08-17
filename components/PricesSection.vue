@@ -163,7 +163,7 @@ const items = [
   padding: 0 16px;
 }
 .prices__slider { display: none; position: relative; }
-.prices-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.prices-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 12px; }
 .card--slide { flex: 0 0 90%; scroll-snap-align: start; margin-inline: 12px; }
 .slider-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,.2); z-index: 2; }
 .slider-nav--prev { left: 6px; }
