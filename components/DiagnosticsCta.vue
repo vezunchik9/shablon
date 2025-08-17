@@ -196,4 +196,11 @@ async function submit () {
     width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  .cta-diagnostics__overlay { padding: 24px 14px 18px; }
+  .cta-diagnostics__title { font-size: 22px; }
+  .input { padding: 12px 14px; font-size: 15px; }
+  .btn { padding: 12px 18px; font-size: 15px; }
+}
 </style>

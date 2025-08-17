@@ -118,4 +118,10 @@ function go(i) {
   .slide { grid-template-columns: 1fr; }
   .slide__img { height: 300px; }
 }
+
+@media (max-width: 600px) {
+  .cases { padding: 40px 12px; }
+  .cases__title { font-size: 24px; }
+  .slide__img { height: 220px; }
+}
 </style>

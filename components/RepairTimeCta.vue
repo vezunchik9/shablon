@@ -111,4 +111,11 @@ async function submit () {
 .phone-group:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(14,170,16,0.2); }
 .phone-prefix { display: flex; align-items: center; justify-content: center; height: 48px; background: #e9f2f9; color: #0b1f2a; font-weight: 700; }
 .phone-input { height: 48px; border: 0; outline: none; padding: 0 16px; font-size: 16px; color: #000; background: #fff; }
+
+@media (max-width: 600px) {
+  .overlay { padding: 36px 14px 28px; }
+  .title { font-size: 24px; }
+  .input { padding: 12px 14px; font-size: 15px; }
+  .btn { padding: 12px 18px; font-size: 15px; }
+}
 </style>

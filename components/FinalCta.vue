@@ -163,4 +163,11 @@ async function submit () {
   .final-cta__form { grid-template-columns: 1fr; }
   .btn { width: 100%; }
 }
+
+@media (max-width: 600px) {
+  .final-cta__overlay { padding: 36px 14px 28px; }
+  .final-cta__title { font-size: 24px; }
+  .input { padding: 12px 14px; font-size: 15px; }
+  .btn { padding: 12px 18px; font-size: 15px; }
+}
 </style>

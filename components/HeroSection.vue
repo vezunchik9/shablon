@@ -208,12 +208,22 @@ async function submit () {
 /* ─── MEDIA QUERIES ─────────────────────────────────────────────────────────── */
 @media (max-width: 992px) {
   .hero__inner { flex-direction: column; }
-  .hero__right { width: 100%; max-width: 400px; }
+  .hero__right { width: 100%; max-width: 480px; }
 }
 
 @media (max-width: 600px) {
-  .hero__title { font-size: 28px; }
-  .hero__subtitle { font-size: 18px; }
-  .benefits__item { font-size: 16px; }
+  .container { padding-inline: 12px; }
+  .hero { padding-block: 12px 8px !important; }
+  .hero__inner { gap: 16px; }
+  .hero__left { text-align: center; width: 100%; }
+  .hero__title { font-size: 30px; line-height: 1.22; text-align: center; margin: 0 0 8px; }
+  .hero__subtitle { font-size: 18px; text-align: center; }
+  .benefits { margin-top: 10px; gap: 12px; width: 100%; }
+  .benefits__item { font-size: 22px; line-height: 1.4; justify-content: center; width: 100%; }
+  .benefits__icon { width: 20px; height: 20px; flex: 0 0 20px; }
+  .hero__right { max-width: 100%; width: 100%; }
+  .cta { padding: 14px; width: 100%; }
+  .cta__title { font-size: 18px; }
+  .cta__btn { padding: 12px 14px; font-size: 15px; width: 100%; }
 }
 </style> 

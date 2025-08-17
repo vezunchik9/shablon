@@ -17,16 +17,48 @@
           цена от <strong>{{ item.price }} рублей</strong>
         </p>
 
-        <button type="button" class="card__btn" @click="openMore(item)">
-          Узнать подробнее
-        </button>
+        <button type="button" class="card__btn" @click="openMore(item)">Узнать подробнее</button>
       </article>
+    </div>
+
+    <!-- Mobile slider -->
+    <div class="prices__slider">
+      <button class="slider-nav slider-nav--prev" aria-label="Предыдущий" @click="prev">‹</button>
+      <div ref="sliderEl" class="prices-track" @scroll="onScroll">
+        <article v-for="item in items" :key="item.slug" class="card card--slide">
+          <img :src="item.img" :alt="item.title" class="card__img" />
+          <h3 class="card__title" v-html="item.title" />
+          <p class="card__time">Время ремонта {{ item.time }}</p>
+          <del class="card__old">{{ item.old }} рублей</del>
+          <p class="card__price">цена от <strong>{{ item.price }} рублей</strong></p>
+          <button type="button" class="card__btn" @click="openMore(item)">Узнать подробнее</button>
+        </article>
+      </div>
+      <button class="slider-nav slider-nav--next" aria-label="Следующий" @click="next">›</button>
+      <div class="slider-dots">
+        <button v-for="(_, i) in items" :key="i" class="dot" :class="{ active: i === index }" @click="go(i)" aria-label="Перейти к слайду" />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 const { open } = useLeadModal()
+const sliderEl = ref(null)
+const index = ref(0)
+
+function go(i) {
+  index.value = Math.max(0, Math.min(i, items.length - 1))
+  const el = sliderEl.value
+  if (!el) return
+  el.scrollTo({ left: el.clientWidth * index.value, behavior: 'smooth' })
+}
+function prev() { go(index.value - 1) }
+function next() { go(index.value + 1) }
+function onScroll(e) {
+  const el = e.target
+  index.value = Math.round(el.scrollLeft / el.clientWidth)
+}
 
 function openMore (item) {
   open({ title: 'Узнать подробнее', submitText: 'Узнать', source: `more-${item.slug}` })
@@ -130,6 +162,15 @@ const items = [
   margin: 0 auto;
   padding: 0 16px;
 }
+.prices__slider { display: none; position: relative; }
+.prices-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.card--slide { flex: 0 0 90%; scroll-snap-align: start; margin-inline: 12px; }
+.slider-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,.2); z-index: 2; }
+.slider-nav--prev { left: 6px; }
+.slider-nav--next { right: 6px; }
+.slider-dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #c9c9c9; border: none; }
+.dot.active { background: var(--green); }
 
 .card {
   border: 1px solid var(--gray-300);
@@ -208,5 +249,12 @@ const items = [
   background: #0d9a0f !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(14, 170, 16, 0.3);
+}
+
+@media (max-width: 600px) {
+  .prices { padding: 56px 0 40px; }
+  .prices__title { font-size: 28px; }
+  .prices__grid { display: none; }
+  .prices__slider { display: block; }
 }
 </style> 

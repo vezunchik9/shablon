@@ -18,6 +18,13 @@
         </div>
 
         <button class="callback" @click="openLead('header-callback')">Перезвоните мне</button>
+
+        <a href="tel:+79226600172" class="topbar__call" aria-label="Позвонить"></a>
+        <button class="nav__burger" aria-label="Меню" @click="isNavOpen = true">
+          <span class="nav__burger-line" />
+          <span class="nav__burger-line" />
+          <span class="nav__burger-line" />
+        </button>
       </div>
 
       <div ref="navSpacer" class="nav-spacer"></div>
@@ -30,6 +37,17 @@
           </ul>
         </div>
       </nav>
+      <!-- Mobile drawer -->
+      <div v-if="isNavOpen" class="nav-mobile-overlay" @click.self="isNavOpen = false">
+        <nav class="nav-mobile" role="dialog" aria-modal="true">
+          <button class="nav-mobile__close" aria-label="Закрыть" @click="isNavOpen = false">×</button>
+          <ul class="nav-mobile__list">
+            <li v-for="item in nav" :key="item.href">
+              <NuxtLink :to="item.href" class="nav-mobile__link" @click="isNavOpen = false">{{ item.title }}</NuxtLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- СЕКЦИИ -->
@@ -84,6 +102,7 @@ import ContactsSection from '@/components/ContactsSection.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 import LeadModal from '@/components/LeadModal.vue'
 const { open: openLead } = useLeadModal()
+const isNavOpen = ref(false)
 
 const nav = [
   { title: 'Главная', href: '/' },
@@ -188,12 +207,12 @@ body {
   border-bottom: 1px solid #e3e3e3;
 }
 
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 10px;
-}
+  .topbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 6px;
+  }
 
 .logo {
   display: flex;
@@ -283,6 +302,53 @@ body {
 .nav__link:hover {
   color: var(--green);
 }
+
+/* ─── MOBILE NAV ───────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .nav__list {
+    gap: 16px;
+    height: 48px;
+    padding-inline: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav__list::-webkit-scrollbar { display: none; }
+  .nav__link { height: 36px; padding: 0 8px; font-weight: 600; }
+}
+
+/* Enforce tight hero spacing on mobile (deep selector to override child component) */
+@media (max-width: 600px) {
+  :deep(.hero) { padding-block: 12px 8px !important; }
+  :deep(.hero__inner) { gap: 12px !important; }
+  :deep(.hero__title) { margin-bottom: 8px !important; }
+  :deep(.cta) { margin-top: 8px !important; }
+}
+
+/* Mobile burger */
+.nav__burger { display: none; margin-left: 12px; width: 36px; height: 36px; border: 1px solid #e3e3e3; border-radius: 8px; background: #fff; align-items: center; justify-content: center; gap: 4px; flex-direction: column; cursor: pointer; }
+.nav__burger-line { display: block; width: 22px; height: 2px; background: #111; border-radius: 1px; }
+
+@media (max-width: 900px) {
+  .callback { display: none; }
+  .nav__burger { display: inline-flex; }
+  .contacts__schedule { display: none; }
+  .contacts__phone { display: none; }
+  .topbar__call { display: inline-flex; }
+  /* Скрываем горизонтальную полосу навигации на мобиле — только бургер */
+  .nav { display: none; }
+  .nav-spacer { display: none; height: 0 !important; }
+}
+
+.nav-mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 2000; display: grid; place-items: end; }
+.nav-mobile { width: 86vw; max-width: 380px; height: 100vh; background: #fff; padding: 16px; box-shadow: -8px 0 24px rgba(0,0,0,.12); }
+.nav-mobile__close { position: absolute; top: 8px; right: 12px; width: 36px; height: 36px; border: none; background: transparent; font-size: 24px; cursor: pointer; }
+.nav-mobile__list { margin: 40px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.nav-mobile__link { display: block; padding: 12px 10px; border-radius: 8px; color: #111; text-decoration: none; font-weight: 600; }
+.nav-mobile__link:hover { background: #f3f3f3; }
+
+/* quick phone icon */
+.topbar__call { display: none; width: 36px; height: 36px; border-radius: 8px; border: 1px solid #e3e3e3; background: #fff url('/icons/home.svg') center/18px no-repeat; margin-left: 8px; }
 
 /* ─── HERO ──────────────────────────────────────────────────────────────────── */
 .hero {
