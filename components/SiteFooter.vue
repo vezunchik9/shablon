@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer__top">
         <div class="brand">
-          <img src="/logo-washer.svg" alt="СТИРАЛ-СЕРВИС" class="brand__img" />
+          <img src="/logo.png" alt="СТИРАЛ-СЕРВИС" class="brand__img" />
           <div class="brand__text">
             <div class="brand__name">СТИРАЛ-СЕРВИС</div>
             <div class="brand__desc">Ремонт стиральных машин с 2012 года</div>
