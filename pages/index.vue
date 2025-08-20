@@ -5,7 +5,7 @@
     <header class="topbar">
       <div class="container topbar__inner">
         <div class="logo">
-          <img src="/logo-washer.svg" alt="СТИРАЛ-СЕРВИС" class="logo__img" />
+          <img src="/logo.png" alt="СТИРАЛ-СЕРВИС" class="logo__img" />
           <div class="logo__text">
             <span class="logo__name">«СТИРАЛ-СЕРВИС»</span>
             <span class="logo__slogan">Чиним стиральные&nbsp;машины с&nbsp;2012&nbsp;года</span>
